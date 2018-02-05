@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Core Online Tutorial - Show Product</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+</head>
+<body>
+<div class="container">
+
+    <div th:if="${succes}" class="alert alert-success" role="alert">
+        <strong th:text="${succes}"></strong>
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-6">
+            <h2>Edit Task</h2>
+        </div>
+    </div>
+    <hr/>
+    <div class="row">
+        <div class="col-sm-8">
+            <form class="form-horizontal" action="#" th:action="@{'/task/edit/' + ${task.id}}" th:object="${task}" method="post">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Product Id:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${task.id}">Product Id</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Title:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${task.taskTitle}"></p>
+                    <br />
+                        <input type="text" th:field="*{taskTitle}" th:required="required"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Description:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${task.taskDescription}"></p>
+                        <br />
+                        <input type="text" th:field="*{taskDescription}" th:required="required"/>
+                    </div>
+                </div>
+                <div class="col-sm-10">
+                    <a href="/"
+                       class="btn btn-primary">Back</a>
+
+                    <button
+                       class="btn btn-success">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>

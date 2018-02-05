@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Core Online Tutorial - Show Product</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+</head>
+<body>
+
+<p class="text-primary">Dodawanie taska</p>
+<form action="#" th:action="@{/}" th:object="${task}" method="post">
+
+
+    <table class="table stripped-table" id="article-table">
+        <tr>
+            <th>Title: </th>
+            <td>
+                <input type="text" th:field="*{taskTitle}" th:required="required"/>
+            </td>
+        </tr>
+
+        <tr>
+            <th>Description: </th>
+            <td>
+                <input type="text" th:field="*{taskDescription}" th:required="required"/>
+            </td>
+        </tr>
+
+        <tr>
+            <th>Assigned User: </th>
+            <td>
+                <input type="text" th:field="*{assignedUser}" th:required="required"/>
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Add"/>
+</form>
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>
