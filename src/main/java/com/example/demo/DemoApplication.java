@@ -11,8 +11,11 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
+
 public class DemoApplication {
 
 
@@ -28,7 +31,7 @@ public class DemoApplication {
 		return args -> {
 			taskRepository.save(new Task("Task1", "Task1", 1));
 			taskRepository.save(new Task("Task2", "Task2", 5));
-			userRepository.save(new User("pawel", "pawel", "pawel@wp.pl", "ADMIN"));
+			userRepository.save(new User("pawel", "$2a$10$TA.UfUqLa8uDeGkt95FfLeq7T5Y5vpDpzAtvJrHSLzLliY/PARXUq", "pawel@wp.pl", "ROLE_ADMIN"));
 		};
 	}
 

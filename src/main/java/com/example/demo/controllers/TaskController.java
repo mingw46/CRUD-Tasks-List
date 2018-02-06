@@ -23,7 +23,7 @@ public class TaskController {
         this.taskService = taskService;
     }
 
-    @RequestMapping("/")
+    @RequestMapping("/task")
     public String helloWorld(Model model){
         model.addAttribute("tasks", taskService.ListAll());
         return "tasksList";
@@ -41,7 +41,7 @@ public class TaskController {
         return "addTask";
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @RequestMapping(value = "/task", method = RequestMethod.POST)
     public String addTaskFromForm(@Valid @ModelAttribute("task") Task task,
                                   Model model, BindingResult result)
     {
@@ -53,13 +53,13 @@ public class TaskController {
 
         taskService.saveOrUpdate(task);
 
-        return "redirect:/";
+        return "redirect:/task";
     }
 
     @RequestMapping(value = "/task/delete/{id}")
     public String deleteTaskById(@PathVariable String id){
         taskService.deleteTask(Long.valueOf(id));
-        return "redirect:/";
+        return "redirect:/task";
     }
 
     @RequestMapping(value = "/task/edit/{id}")

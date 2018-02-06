@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
 <head>
     <title>Spring Core Online Tutorial - List Products</title>
     <meta charset="utf-8" />
@@ -8,6 +12,12 @@
 
 </head>
 <body>
+
+<div class="header">
+    <a th:href="@{/logout}">Wyloguj</a>
+</div>
+
+
 <div class="container">
     <div th:if="${not #lists.isEmpty(tasks)}">
         <div class="jumbotron">

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Core Online Tutorial - Show Product</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+</head>
+<body>
+
+<div class="container">
+
+    <form th:action="@{/login}" method="POST" class="form-signin" style="width:30%;margin:auto">
+        <h2 class="form-signin-heading">Login</h2>
+
+        <hr />
+
+        <br/>
+        <div align="center" th:if="${param.error}">
+            <p class="text-danger">Username or password is invalid</p>
+        </div>
+
+        <input type="text" id="username" name="username"  placeholder="Username or Email"
+               class="form-control" /> <br/>
+        <input type="password"  placeholder="Password"
+               id="password" name="password" class="form-control" /> <br />
+
+
+        <button class="btn btn-lg btn-success btn-block" name="Submit" value="Login" type="Submit" th:text="Login"></button>
+    </form>
+</div>
+
+
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>
