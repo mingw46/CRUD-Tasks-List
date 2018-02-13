@@ -4,6 +4,7 @@ import com.example.demo.domain.Task;
 import com.example.demo.domain.User;
 import com.example.demo.repositories.TaskRepository;
 import com.example.demo.repositories.UserRepository;
+import com.example.demo.services.EmailService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,10 @@ public class DemoApplication {
 		return args -> {
 			taskRepository.save(new Task("Task1", "Task1", 1));
 			taskRepository.save(new Task("Task2", "Task2", 5));
-			userRepository.save(new User("pawel", "$2a$10$TA.UfUqLa8uDeGkt95FfLeq7T5Y5vpDpzAtvJrHSLzLliY/PARXUq", "pawel@wp.pl", "ROLE_ADMIN"));
+			userRepository.save(new User("pawel", "$2a$10$TA.UfUqLa8uDeGkt95FfLeq7T5Y5vpDpzAtvJrHSLzLliY/PARXUq", "pawel@wp.pl", "ROLE_ADMIN", true));
+
+
+
 		};
 	}
 
