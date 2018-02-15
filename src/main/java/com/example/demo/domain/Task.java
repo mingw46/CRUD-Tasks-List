@@ -1,9 +1,6 @@
 package com.example.demo.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Task {
@@ -16,15 +13,17 @@ public class Task {
 
     private String taskDescription;
 
-    private int assignedUser;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "user_id")
+    private User user;
 
 
       public Task(){}
 
-    public Task(String taskTitle, String taskDescription, int assignedUser) {
+    public Task(String taskTitle, String taskDescription) {
         this.taskTitle = taskTitle;
         this.taskDescription = taskDescription;
-        this.assignedUser = assignedUser;
     }
 
 
@@ -52,11 +51,11 @@ public class Task {
         this.taskDescription = taskDescription;
     }
 
-    public int getAssignedUser() {
-        return assignedUser;
+    public User getUser() {
+        return user;
     }
 
-    public void setAssignedUser(int assignedUser) {
-        this.assignedUser = assignedUser;
+    public void setUser(User user) {
+        this.user = user;
     }
 }

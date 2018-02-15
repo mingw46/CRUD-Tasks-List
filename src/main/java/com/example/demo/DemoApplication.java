@@ -30,9 +30,14 @@ public class DemoApplication {
 	@Bean
 	public CommandLineRunner test(TaskRepository taskRepository, UserRepository userRepository){
 		return args -> {
-			taskRepository.save(new Task("Task1", "Task1", 1));
-			taskRepository.save(new Task("Task2", "Task2", 5));
-			userRepository.save(new User("pawel", "$2a$10$TA.UfUqLa8uDeGkt95FfLeq7T5Y5vpDpzAtvJrHSLzLliY/PARXUq", "pawel@wp.pl", "ROLE_ADMIN", true));
+			User user = new User("pawel", "$2a$10$TA.UfUqLa8uDeGkt95FfLeq7T5Y5vpDpzAtvJrHSLzLliY/PARXUq", "pawel@wp.pl", "ROLE_ADMIN", true);
+			userRepository.save(user);
+			Task task = new Task("Task1", "Task1");
+			task.setUser(user);
+			taskRepository.save(task);
+			//taskRepository.save(new Task("Task2", "Task2", 5));
+			User user2 = new User("pawdsfel", "$2a$10$TA.UfUqLa8uDeGkt95FfLeq7T5Y5vpDpzAtvJrHSLzLliY/PARXUq", "pawel@wp.pl", "ROLE_ADMIN", true);
+			userRepository.save(user2);
 
 
 

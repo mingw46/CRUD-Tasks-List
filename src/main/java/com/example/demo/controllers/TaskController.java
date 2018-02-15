@@ -1,7 +1,9 @@
 package com.example.demo.controllers;
 
 import com.example.demo.domain.Task;
+import com.example.demo.repositories.UserRepository;
 import com.example.demo.services.TaskService;
+import com.example.demo.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -19,6 +21,9 @@ import javax.validation.Valid;
 public class TaskController {
 
     private TaskService taskService;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @Autowired
     public void setTaskService(TaskService taskService) {
@@ -70,6 +75,7 @@ public class TaskController {
     public String saveTaskById(@PathVariable String id, Model model){
 
        model.addAttribute("task", taskService.getById(Long.valueOf(id)));
+       model.addAttribute("users", userRepository.findAll());
         return "editTask";
     }
 

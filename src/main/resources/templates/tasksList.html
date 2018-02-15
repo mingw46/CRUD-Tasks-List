@@ -38,7 +38,7 @@
                 <td th:text="${task.id}"></td>
                 <td th:text="${task.taskTitle}"></td>
                 <td th:text="${task.taskDescription}"></td>
-                <td th:text="${task.assignedUser}"></td>
+                <td th:text="${task.user.username}"></td>
                 <td>
 
                     <a th:href="'#' + ${task.id}" data-toggle="modal">
